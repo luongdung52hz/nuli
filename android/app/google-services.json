@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "825783729440",
+    "project_id": "vital-code-478705-n5",
+    "storage_bucket": "vital-code-478705-n5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825783729440:android:c5ced6524bcb5bacc02b45",
+        "android_client_info": {
+          "package_name": "com.example.nuli_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAT0_VF_lHToydRUZvEL1b2S3PswmvoYuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825783729440:android:f8dd2e0d0e44d67bc02b45",
+        "android_client_info": {
+          "package_name": "nuli.htecom.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAT0_VF_lHToydRUZvEL1b2S3PswmvoYuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
