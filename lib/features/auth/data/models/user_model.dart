@@ -1,40 +1,63 @@
-import 'package:nuli_app/features/auth/data/models/user_role.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class UserModel{
-  final String uid;
+import 'user_role.dart';
+
+class UserModel {
+  final String id;
   final String email;
   final String displayName;
-  final DateTime createdAt;
   final UserRole role;
+  final Timestamp createdAt;
+  final Timestamp updatedAt;
+
 
   UserModel({
-    required this.uid,
+    required this.id,
     required this.email,
     required this.displayName,
-    required this.createdAt,
     required this.role,
-
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
-      uid: json['id'] as String,
+      id: json['id'] as String,
       email: json['email'] as String,
       displayName: json['display_name'] as String,
       role: UserRole.fromJson(json['role'] as String),
-      createdAt: DateTime.parse(json['created_at'] as String),
-
+      createdAt: json['createdAt'] ?? Timestamp.now(),
+      updatedAt: json['updatedAt'] ?? Timestamp.now(),
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'id':uid,
+      'id': id,
       'email': email,
       'display_name': displayName,
       'role': role.toJson(),
-      'created_at': createdAt.toIso8601String(),
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
     };
+  }
+
+  UserModel copyWith({
+    String? id,
+    String? email,
+    String? displayName,
+    UserRole? role,
+    Timestamp? createdAt,
+    Timestamp?  updatedAt,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      email: email ?? this.email,
+      displayName: displayName ?? this.displayName,
+      role: role ?? this.role,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+    );
   }
 
 }
