@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:nuli_app/core/constants/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
-  final VoidCallback? onPressed; // Callback khi nhấn (có thể null để disable)
-  final String text; // Text hiển thị trên nút
-  final bool isLoading; // State loading
+  final VoidCallback? onPressed;
+  final String text;
+  final bool isLoading;
   final double height;
   final EdgeInsetsGeometry
-  padding; // Padding nội dung (mặc định như code của bạn)
-  final BorderRadius borderRadius; // Bo góc (mặc định 10)
-  final BoxShadow? boxShadow; // Shadow tùy chỉnh
-  final IconData? icon; // Icon tùy chọn (mới thêm)
-  final double? iconSize; // Kích thước icon (mặc định 20, mới thêm)
-  final FontWeight? fontWeight; // NEW: Tùy chọn font weight
-  final Color? buttonColor; // NEW: Màu nền nút (mặc định AppColors.primary)
+  padding;
+  final BorderRadius borderRadius;
+  final BoxShadow? boxShadow;
+  final IconData? icon;
+  final double? iconSize;
+  final FontWeight? fontWeight;
+  final Color? buttonColor;
 
   const CustomButton({
     super.key,
@@ -48,7 +48,6 @@ class CustomButton extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: effectiveColor,
                     borderRadius: borderRadius,
-                    //boxShadow: boxShadow ?? [],
                   ),
                   child: Center(
                     child: icon != null ? Row(

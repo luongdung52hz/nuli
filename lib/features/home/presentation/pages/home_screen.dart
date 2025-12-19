@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nuli_app/core/constants/app_constans.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../core/routers/router_name.dart';
+import '../../../../core/widgets/button_app.dart';
+import '../../../auth/presentation/provider/auth_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final auth = context.watch<AuthController>();
+    if (auth.user != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        context.go(Routes.login);
+
+      });
+    }
+
     return Scaffold(
       backgroundColor: const Color(0xFFF6FBF7),
       appBar: AppBar(
@@ -28,6 +42,17 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             _quickActions(context),
+            Consumer<AuthController>(
+              builder: (context, auth, child) {
+                return CustomButton(
+                    isLoading: auth.isLoading,
+                    text: 'Đăng xuất',
+                    onPressed: () async {
+                      await auth.signOut;
+                    }
+                );
+              },
+            )
           ],
         ),
       ),
@@ -124,4 +149,5 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
 }

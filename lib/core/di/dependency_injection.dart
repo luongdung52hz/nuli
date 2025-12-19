@@ -22,5 +22,5 @@ Future<void> initDependencies() async
   );
   getIt.registerLazySingleton<UserRepository>(()=> UserRepository(getIt<FirebaseFirestore>()));
   getIt.registerLazySingleton<AuthRepository>(()=>AuthRepository(getIt<AuthService>(),getIt<UserRepository>()));
-  getIt.registerFactory<AuthController>(()=> AuthController(getIt<AuthService>()));
+  getIt.registerFactory<AuthController>(()=> AuthController(getIt<AuthService>(),getIt<AuthRepository>()));
 }

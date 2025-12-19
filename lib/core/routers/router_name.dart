@@ -6,8 +6,8 @@ class Routes{
 
 //AUTH
   static const login = '/login';
-  static const register = 'auth/register';
-  static const forgotPass = 'auth/forgot-pass';
+  static const register = '/register';
+  static const forgotPass = '/forgot_pass';
 
 
 }

@@ -12,7 +12,12 @@
           "package_name": "com.example.nuli_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "825783729440-93l3op22lp4i53ggeajbmcu8o3qev60j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAT0_VF_lHToydRUZvEL1b2S3PswmvoYuo"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "825783729440-93l3op22lp4i53ggeajbmcu8o3qev60j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "825783729440-1c2ndbomh9i6bm50p90c8m9faj22dsh4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "nuli.htecom.app"
+              }
+            }
+          ]
         }
       }
     },
@@ -31,7 +48,20 @@
           "package_name": "nuli.htecom.app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "825783729440-8d2hdps667u7nvn5c7mhugbd5avrt0hv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nuli.htecom.app",
+            "certificate_hash": "7578c372cc75b3f52deb3bfd1f2c8e7a473029cb"
+          }
+        },
+        {
+          "client_id": "825783729440-93l3op22lp4i53ggeajbmcu8o3qev60j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAT0_VF_lHToydRUZvEL1b2S3PswmvoYuo"
@@ -39,7 +69,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "825783729440-93l3op22lp4i53ggeajbmcu8o3qev60j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "825783729440-1c2ndbomh9i6bm50p90c8m9faj22dsh4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "nuli.htecom.app"
+              }
+            }
+          ]
         }
       }
     }

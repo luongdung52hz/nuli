@@ -55,9 +55,10 @@ class AuthRepository {
 
   Future<UserModel?> signInWithGoogle() async {
     final firebaseUser = await _authService.signInWithGoogle();
+
     if (firebaseUser == null) return null;
 
-    // Check Firestore
+    //  Check user đã tồn tại trong Firestore chưa
     final existingUser =
     await _userRepository.getUserById(firebaseUser.uid);
 
@@ -65,18 +66,19 @@ class AuthRepository {
       return existingUser;
     }
 
-    // Create new user if not exists
+    //  Nếu chưa tồn tại → tạo user mới
     final newUser = UserModel(
       id: firebaseUser.uid,
       email: firebaseUser.email ?? '',
-      displayName:
-      firebaseUser.displayName ?? 'Google User',
+      displayName: firebaseUser.displayName ?? 'Google User',
       role: UserRole.user,
       createdAt: Timestamp.now(),
       updatedAt: Timestamp.now(),
     );
 
+    //  Lưu Firestore
     await _userRepository.createUser(newUser);
+
     return newUser;
   }
 
