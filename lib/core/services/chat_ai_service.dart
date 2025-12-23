@@ -1,8 +1,9 @@
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class AiChatService {
-  static const String _apiKey = 'AIzaSyBl_JBlqSWCh5QcwrnNKW5SjR4sw6InMOM';
+  static final String _apiKey = dotenv.env['APIKEY_GEMINI'] ?? '';
 
   static const String _endpoint =
       'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
@@ -22,7 +23,7 @@ class AiChatService {
                 "Bạn là trợ lý nông nghiệp Việt Nam. "
                     "Chỉ trả lời các câu hỏi về cây trồng, vật nuôi, sâu bệnh, phân bón, canh tác. "
                     "Nếu không liên quan, trả lời: \"Tôi chỉ hỗ trợ nông nghiệp.\" "
-                    "KHÔNG dùng markdown, KHÔNG dùng ký tự **, ##, -, *. "
+                    "KHÔNG dùng markdown, KHÔNG dùng ký tự **, ##, *, nhưng được dùng - và :. "
                     "Chỉ viết văn bản thường, xuống dòng bằng Enter. "
                     "Trả lời ngắn gọn, dễ hiểu.\n\n"
                     "Hỏi: $question"

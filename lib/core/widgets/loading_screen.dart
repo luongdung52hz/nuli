@@ -5,6 +5,7 @@ import 'package:get_it/get_it.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../constants/app_icons.dart';
 import '../routers/router_name.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -102,7 +103,7 @@ class _LoadingScreenState extends State<LoadingScreen>
             children: [
               // Logo app
               Image.asset(
-                'lib/assets/images/logoNuli.png',
+                AppIcons.logoApp,
                 height: 120,
                 width: 120,
               ),

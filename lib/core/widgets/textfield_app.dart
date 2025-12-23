@@ -50,6 +50,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       validator: widget.validator,
+      cursorColor: AppColors.primaryGreen,
       obscureText: widget.isPassword && _obscurePassword,
       enabled: widget.enabled,
       maxLines: widget.isPassword ? 1 : widget.maxLines,

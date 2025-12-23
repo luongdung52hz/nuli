@@ -11,6 +11,8 @@ Widget ScheduleCard() {
       ),
       const SizedBox(height: 8),
       Card(
+        color: Colors.white,
+        borderOnForeground: false,
         shape:
         RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: ListTile(

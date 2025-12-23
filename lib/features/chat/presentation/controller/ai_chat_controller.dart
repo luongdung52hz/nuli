@@ -65,4 +65,8 @@ class AiChatController extends ChangeNotifier {
 
     setLoading(false);
   }
+  void resetChat() {
+    messages.clear();
+    setLoading(false);
+  }
 }
