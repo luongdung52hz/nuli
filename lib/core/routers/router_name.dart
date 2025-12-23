@@ -5,9 +5,9 @@ class Routes{
   static const admin = '/admin';
 
 //AUTH
-  static const login = 'auth/login';
-  static const register = 'auth/register';
-  static const forgotPass = 'auth/forgot-pass';
+  static const login = '/login';
+  static const register = '/register';
+  static const forgotPass = '/forgot_pass';
 
 
 }
