@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final auth = context.watch<AuthController>();
 
-    if (auth.user == null) {
+    if (auth.user != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         context.go(Routes.home);
       });
@@ -127,7 +127,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           _emailCtrl.text.trim(),
                           _passCtrl.text.trim(),
                         );
-
                         if (!success) {
                           _showErrorSnackBar(
                             auth.error ?? 'Đăng nhập thất bại',
@@ -215,6 +214,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     builder: (context, auth, child) {
                       return SizedBox(
                         width: double.infinity,
+                        height: 50,
                         child: OutlinedButton.icon(
                           onPressed: auth.isLoading
                               ? null
@@ -255,7 +255,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           style: OutlinedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(
-                              vertical: 16,
+                              // vertical: 20,
                               horizontal: 30,
                             ),
                             side: BorderSide(

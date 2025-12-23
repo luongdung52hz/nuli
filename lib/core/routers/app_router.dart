@@ -8,14 +8,6 @@ import 'package:nuli_app/features/auth/presentation/pages/register_screen.dart';
 import 'package:nuli_app/features/home/presentation/pages/home_screen.dart';
 import '../../features/auth/presentation/pages/forgot_pass_screen.dart';
 
-
-class AuthStateNotifier extends ChangeNotifier {
-  AuthStateNotifier() {
-    FirebaseAuth.instance.authStateChanges().listen((_) {
-      notifyListeners();
-    });
-  }
-}
 class AppRouter {
   static final GoRouter routes = GoRouter(
       initialLocation: Routes.loading,
@@ -31,10 +23,9 @@ class AppRouter {
       ),
       redirect: (context, state) {
         final user = FirebaseAuth.instance.currentUser;
-        refreshListenable: AuthStateNotifier();
         final isLoggedIn = user != null;
 
-        // Danh sách các route auth (không cần login)
+        // Danh sách các route auth
         final authRoutes = [
           Routes.login,
           Routes.register,
@@ -44,26 +35,24 @@ class AppRouter {
 
         final isAuthRoute = authRoutes.contains(state.matchedLocation);
 
-        // Nếu đang ở loading screen, để nó xử lý
+        // Nếu đang ở loading screen
         if (state.matchedLocation == Routes.loading) {
+
           return null;
         }
 
-        // Chưa đăng nhập mà cố vào trang cần auth → đá về login
+        // Chưa đăng nhập mà cố vào trang cần auth
         if (!isLoggedIn && !isAuthRoute) {
           return Routes.login;
         }
 
-        // Đã đăng nhập mà còn ở trang auth → về home
+        // Đã đăng nhập mà còn ở trang auth
         if (isLoggedIn && isAuthRoute) {
           return Routes.home;
         }
 
-        return null; // Không redirect
+        return null;
       },
-
-      //  RefreshListenable để GoRouter tự động rebuild khi auth thay đổi
-
       routes: [
 
         GoRoute(

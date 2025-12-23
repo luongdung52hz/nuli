@@ -13,10 +13,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final auth = context.watch<AuthController>();
-    if (auth.user != null) {
+    if (auth.user == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         context.go(Routes.login);
-
       });
     }
 
@@ -48,7 +47,8 @@ class HomeScreen extends StatelessWidget {
                     isLoading: auth.isLoading,
                     text: 'Đăng xuất',
                     onPressed: () async {
-                      await auth.signOut;
+                      await auth.signOut();
+                      context.go(Routes.login);
                     }
                 );
               },

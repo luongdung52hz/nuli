@@ -127,7 +127,7 @@ class _ForgotPasswordScreen extends State<ForgotPasswordScreen> {
                     prefixIcon: Icons.email,
                     keyboardType: TextInputType.emailAddress,
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 26),
 
                   // Button reset pass
                   Consumer<AuthController>(
@@ -153,6 +153,7 @@ class _ForgotPasswordScreen extends State<ForgotPasswordScreen> {
                       );
                     },
                   ),
+                  const SizedBox(height: 26),
 
                   // Sign In Link
                   Row(
