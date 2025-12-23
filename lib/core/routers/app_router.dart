@@ -5,12 +5,14 @@ import 'package:nuli_app/core/routers/router_name.dart';
 import 'package:nuli_app/core/widgets/loading_screen.dart';
 import 'package:nuli_app/features/auth/presentation/pages/login_screen.dart';
 import 'package:nuli_app/features/auth/presentation/pages/register_screen.dart';
+import 'package:nuli_app/features/chat/presentation/pages/chat_screen.dart';
 import 'package:nuli_app/features/home/presentation/pages/home_screen.dart';
+import 'package:nuli_app/features/settings/presentation/pages/settings_screen.dart';
 import '../../features/auth/presentation/pages/forgot_pass_screen.dart';
 
 class AppRouter {
   static final GoRouter routes = GoRouter(
-      initialLocation: Routes.loading,
+      initialLocation: Routes.login,
       debugLogDiagnostics: true,
       errorBuilder: (context, state) => Scaffold(
         appBar: AppBar(title: const Text('Lỗi Route')),
@@ -70,7 +72,14 @@ class AppRouter {
           builder: (context, state)=> const ForgotPasswordScreen(),
         ),
         GoRoute(path:Routes.loading,
-        builder: (context, state) => const LoadingScreen())
+        builder: (context, state) => const LoadingScreen()
+        ),
+        GoRoute(path: Routes.chat,
+        builder:(context, state)=> AiChatScreen()
+        ),
+        GoRoute(path: Routes.setting,
+            builder:(context, state)=> SettingsScreen()
+        ),
 
       ]
   );
