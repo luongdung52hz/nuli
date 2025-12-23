@@ -8,7 +8,7 @@ import 'package:nuli_app/core/widgets/textfield_app.dart';
 import '../../../../core/constants/app_size.dart';
 import '../../../../core/routers/router_name.dart';
 import 'package:provider/provider.dart';
-import '../provider/auth_controller.dart';
+import '../controller/auth_controller.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});

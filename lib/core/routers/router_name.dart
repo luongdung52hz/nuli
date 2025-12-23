@@ -9,5 +9,10 @@ class Routes{
   static const register = '/register';
   static const forgotPass = '/forgot_pass';
 
+//CHAT
+  static const chat = '/chat';
+
+//SETTINGS
+  static const setting = '/setting';
 
 }
