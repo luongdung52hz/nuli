@@ -8,6 +8,7 @@ import 'package:nuli_app/features/auth/presentation/pages/register_screen.dart';
 import 'package:nuli_app/features/chat/presentation/pages/chat_screen.dart';
 import 'package:nuli_app/features/home/presentation/pages/home_screen.dart';
 import 'package:nuli_app/features/settings/presentation/pages/settings_screen.dart';
+import 'package:nuli_app/features/weather/presentation/pages/weather_screen.dart';
 import '../../features/auth/presentation/pages/forgot_pass_screen.dart';
 
 class AppRouter {
@@ -76,6 +77,9 @@ class AppRouter {
         ),
         GoRoute(path: Routes.chat,
         builder:(context, state)=> AiChatScreen()
+        ),
+        GoRoute(path: Routes.weather,
+          builder:(context, state) => const WeatherScreen()
         ),
         GoRoute(path: Routes.setting,
             builder:(context, state)=> SettingsScreen()

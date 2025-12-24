@@ -9,7 +9,7 @@ class AppTextStyles{
   static const TextStyle headingLarge = TextStyle(
     fontSize: 28,
     fontWeight: FontWeight.w700,
-    color: AppColors.darkText,
+    color: AppColors.lightText,
   );
 
   static const TextStyle headingMedium = TextStyle(

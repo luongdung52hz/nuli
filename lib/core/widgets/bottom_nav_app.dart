@@ -42,7 +42,7 @@ class BottomNavApp extends StatelessWidget {
               context.go(Routes.chat);
               break;
             case 2:
-              context.go(Routes.home);
+              context.go(Routes.weather);
               break;
             case 3:
               context.go(Routes.home);
@@ -75,7 +75,7 @@ class BottomNavApp extends StatelessWidget {
               index: 3,
               currentIndex: currentIndex,
               svgPath: AppIcons.iconCalendar),
-            label: "Calendar",
+            label: "Schedule",
           ),
           BottomNavigationBarItem(icon: _CustomNavIcon(
               index: 4,

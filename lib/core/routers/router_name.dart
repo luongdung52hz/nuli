@@ -12,6 +12,8 @@ class Routes{
 //CHAT
   static const chat = '/chat';
 
+  static const weather = '/weather';
+
 //SETTINGS
   static const setting = '/setting';
 
