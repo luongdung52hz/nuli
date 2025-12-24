@@ -1,4 +1,4 @@
-# nuli_app
+# NULI
 
 A new Flutter project.
 
