@@ -33,7 +33,7 @@ class WeatherRepository{
        double latitude,
        double longitude,
        ) {
-     return _weatherService.fetchForecastFor(latitude, longitude);
+     return _weatherService.fetchForecastFor(latitude: latitude, longitude: longitude);
    }
 
 }

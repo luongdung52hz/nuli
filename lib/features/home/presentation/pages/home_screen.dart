@@ -20,49 +20,59 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   Future.microtask(() {
-  //     context.read<WeatherController>().loadCurrentWeather();
-  //   });
-  // }
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(
+          () => context.read<WeatherController>().loadCurrentWeather(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    // final controller = context.read<WeatherController>();
-    // final weather = controller.current!;
+    final controller = context.watch<WeatherController>();
+    if (controller.isLoading) {
+      return const Center(
+        child: CircularProgressIndicator(color: AppColors.primaryGreen),
+      );
+    }
+
+    if (controller.error != null) {
+      return Center(
+        child: Text(
+          controller.error!,
+          style: const TextStyle(color: Colors.red),
+        ),
+      );
+    }
+
+    final weather = controller.current;
+    if (weather == null) {
+      return const Center(child: Text('Đang tải thời tiết...'));
+    }
 
     return Scaffold(
       appBar: AppBar(
         title: Text(AppConstants.appName, style: AppTextStyles.headingLarge),
         backgroundColor: AppColors.primaryGreen,
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications, color: Colors.white,),
-            onPressed: () => (),
-            tooltip: 'Đăng xuất',
-          ),
+        actions: const [
+          Icon(Icons.notifications, color: Colors.white),
         ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
-         mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            // GestureDetector(
-            //   child: CurrentWeatherCard(weather),
-            //   onTap: (){
-            //     context.go(Routes.weather);
-            //     },
-            // ),
+            GestureDetector(
+              onTap: () => context.go(Routes.weather),
+              child: CurrentWeatherCard(weather),
+            ),
             const SizedBox(height: 16),
-            ScheduleCard(),
+            // const ScheduleCard(),
             const SizedBox(height: 20),
             const Text(
-              "Quick Acti",
+              'Quick Action',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
@@ -71,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: const BottomNavApp(currentIndex: 0),
-
     );
   }
+
 }

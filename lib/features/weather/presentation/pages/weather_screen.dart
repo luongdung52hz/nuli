@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nuli_app/core/constants/app_colors.dart';
 import 'package:nuli_app/features/weather/presentation/pages/widgets/current_weather_card.dart';
+import 'package:nuli_app/features/weather/presentation/pages/widgets/daily_weather.dart';
+import 'package:nuli_app/features/weather/presentation/pages/widgets/hourly_weather.dart';
 import 'package:nuli_app/features/weather/presentation/pages/widgets/weather_details.dart';
 import 'package:provider/provider.dart';
 
@@ -15,14 +17,14 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
-  @override
-  void initState() {
-    super.initState();
-
-    Future.microtask(() {
-      context.read<WeatherController>().loadWeatherCurrentLocation();
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //
+  //   Future.microtask(() {
+  //     context.read<WeatherController>().loadWeatherCurrentLocation();
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -42,22 +44,22 @@ class _WeatherScreenState extends State<WeatherScreen> {
   }
 
   Widget _buildBody(WeatherController controller) {
-    if (controller.isLoading) {
-      return const Center(child: CircularProgressIndicator(color: AppColors.primaryGreen,));
-    }
-
-    if (controller.error != null) {
-      return Center(
-        child: Text(
-          controller.error!,
-          style: const TextStyle(color: Colors.red),
-        ),
-      );
-    }
-
-    if (controller.current == null) {
-      return const Center(child: Text('Không có dữ liệu thời tiết'));
-    }
+    // if (controller.isLoading) {
+    //   return const Center(child: CircularProgressIndicator(color: AppColors.primaryGreen,));
+    // }
+    //
+    // if (controller.error != null) {
+    //   return Center(
+    //     child: Text(
+    //       controller.error!,
+    //       style: const TextStyle(color: Colors.red),
+    //     ),
+    //   );
+    // }
+    //
+    // if (controller.current == null) {
+    //   return const Center(child: Text('Không có dữ liệu thời tiết'));
+    // }
 
     final weather = controller.current!;
 
@@ -69,6 +71,14 @@ class _WeatherScreenState extends State<WeatherScreen> {
           CurrentWeatherCard(weather),
           const SizedBox(height: 16),
           WeatherDetails(weather),
+          const SizedBox(height: 16),
+          Text("Thời tiết theo giờ"),
+          HourlyWeatherList(controller.hourly),
+          const SizedBox(height: 16),
+          Text("Thời tiết - 5 ngày tới"),
+          DailyWeatherList(controller.daily),
+          const SizedBox(height: 16),
+
         ],
       ),
     );

@@ -36,7 +36,7 @@ class WeatherService{
   WeatherModel current,
   List<DailyForecast> daily,
   List<HourlyForecast> hourly})>
-  fetchForecastFor( double latitude, double longitude){
+  fetchForecastFor( {double? latitude, double? longitude,} ){
     return _fetchWeather(latitude: latitude, longitude: longitude, days: 5);
   }
 
