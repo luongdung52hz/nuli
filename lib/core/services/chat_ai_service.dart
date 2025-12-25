@@ -1,12 +1,11 @@
 import 'dart:convert';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
+import 'package:nuli_app/core/constants/app_constans.dart';
 
 class AiChatService {
-  static final String _apiKey = dotenv.env['APIKEY_GEMINI'] ?? '';
+  static final String _apiKey = AppConstants.apiKeyAI;
 
-  static const String _endpoint =
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
+  static const String _endpoint = AppConstants.aiUrl;
 
   Future<String> askChatAI(String question) async {
     final response = await http.post(

@@ -15,6 +15,7 @@ dependencies:
   flutter_dotenv: ^6.0.0
   flutter_phoenix: ^1.1.1
   shared_preferences: ^2.5.4
+  intl: ^0.20.2
 
 # UI & animation
   lottie: ^3.3.2
@@ -32,11 +33,11 @@ dependencies:
   webview_flutter: ^4.13.0
   http: ^1.5.0
 
-  # Video & Image
+# Video & Image
   image_picker: ^1.2.1
   video_player: ^2.10.1
 
-#Navigater
+# Navigater
   go_router: ^16.2.5
 
 # Database & Storage
@@ -45,6 +46,10 @@ dependencies:
   cloud_firestore: ^6.0.3
   firebase_storage: ^13.0.3
   google_sign_in: ^6.2.1
+
+# Location
+  geolocator: ^14.0.2
+  geocoding: ^4.0.0
 
 # Local DB
   hive: ^2.2.3

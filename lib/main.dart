@@ -5,6 +5,7 @@ import 'package:nuli_app/features/chat/presentation/controller/ai_chat_controlle
 import 'package:provider/provider.dart';
 import 'core/di/dependency_injection.dart';
 import 'features/auth/presentation/controller/auth_controller.dart';
+import 'features/weather/presentation/controller/weather_controller.dart';
 import 'firebase_options.dart';
 import 'app.dart';
 
@@ -22,6 +23,9 @@ void main() async{
             ),
             ChangeNotifierProvider(
                 create: (_) => getIt<AiChatController>()
+            ),
+            ChangeNotifierProvider(
+                create: (_) => getIt<WeatherController>()
             ),
           ],
       child: const NuliApp()

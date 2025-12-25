@@ -12,6 +12,7 @@ class AppColors{
   static const Color lightBackground = Color(0xFFF5F7F9);
   static const Color cardBackground = Color(0xFFFFFFFF);
   static const Color darkText = Color(0xFF162C2B);
+  static const Color lightText = Color(0xFFFFFFFF);
   static const Color mutedText = Color(0xFF6F7D86);
   static const Color paleGreen = Color(0xFFE6F4F1);
   static const Color paleOrange = Color(0xFFFFF2E6);
