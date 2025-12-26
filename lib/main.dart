@@ -4,6 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:nuli_app/features/chat/presentation/controller/ai_chat_controller.dart';
 import 'package:provider/provider.dart';
 import 'core/di/dependency_injection.dart';
+import 'features/article/presentation/controller/article_controller.dart';
 import 'features/auth/presentation/controller/auth_controller.dart';
 import 'features/weather/presentation/controller/weather_controller.dart';
 import 'firebase_options.dart';
@@ -26,6 +27,9 @@ void main() async{
             ),
             ChangeNotifierProvider(
                 create: (_) => getIt<WeatherController>()
+            ),
+            ChangeNotifierProvider(
+                create: (_) => getIt<ArticleController>()
             ),
           ],
       child: const NuliApp()

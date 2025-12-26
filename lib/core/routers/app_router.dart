@@ -1,14 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:http/http.dart' as Get;
 import 'package:nuli_app/core/routers/router_name.dart';
 import 'package:nuli_app/core/widgets/loading_screen.dart';
+import 'package:nuli_app/features/article/presentation/pages/list_article.dart';
 import 'package:nuli_app/features/auth/presentation/pages/login_screen.dart';
 import 'package:nuli_app/features/auth/presentation/pages/register_screen.dart';
 import 'package:nuli_app/features/chat/presentation/pages/chat_screen.dart';
 import 'package:nuli_app/features/home/presentation/pages/home_screen.dart';
 import 'package:nuli_app/features/settings/presentation/pages/settings_screen.dart';
 import 'package:nuli_app/features/weather/presentation/pages/weather_screen.dart';
+import '../../features/article/data/models/article_model.dart';
+import '../../features/article/presentation/pages/article_screen.dart';
 import '../../features/auth/presentation/pages/forgot_pass_screen.dart';
 
 class AppRouter {
@@ -83,6 +87,22 @@ class AppRouter {
         ),
         GoRoute(path: Routes.setting,
             builder:(context, state)=> SettingsScreen()
+        ),
+        GoRoute(
+          path: '/news',
+          builder: (context, state) {
+            Get.put(ArticleListScreen() as Uri); // Inject controller
+            return const ArticleListScreen();
+          },
+          routes: [
+            GoRoute(
+              path: '/detail', // Không params, dùng extra cho article
+              builder: (context, state) {
+                final article = state.extra as ArticleModel; // Từ onTap push
+                return ArticleScreen(article: article);
+              },
+            ),
+          ],
         ),
 
       ]

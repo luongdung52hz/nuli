@@ -14,6 +14,9 @@ class Routes{
 
   static const weather = '/weather';
 
+  static const news = '/news';
+  static const newsDetail = 'news/detail';
+
 //SETTINGS
   static const setting = '/setting';
 

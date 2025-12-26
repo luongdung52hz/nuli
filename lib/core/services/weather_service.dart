@@ -37,7 +37,7 @@ class WeatherService{
   List<DailyForecast> daily,
   List<HourlyForecast> hourly})>
   fetchForecastFor( {double? latitude, double? longitude,} ){
-    return _fetchWeather(latitude: latitude, longitude: longitude, days: 5);
+    return _fetchWeather(latitude: latitude, longitude: longitude, days: 7);
   }
 
   Future<({
@@ -49,7 +49,7 @@ class WeatherService{
   _fetchWeather({
     double? latitude,
     double? longitude,
-    int days = 5,
+    int days = 7,
   }) async {
     try {
 

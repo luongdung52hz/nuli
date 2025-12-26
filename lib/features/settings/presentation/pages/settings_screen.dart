@@ -6,6 +6,7 @@ import '../../../../core/routers/router_name.dart';
 import '../../../../core/widgets/bottom_nav_app.dart';
 import '../../../../core/widgets/button_app.dart';
 import '../../../auth/presentation/controller/auth_controller.dart';
+import '../../../chat/presentation/controller/ai_chat_controller.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -29,6 +30,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     isLoading: auth.isLoading,
                     text: 'Đăng xuất',
                     onPressed: () async {
+                      context.read<AiChatController>().resetChat();
                       await auth.signOut();
                       context.go(Routes.login);
                     }
