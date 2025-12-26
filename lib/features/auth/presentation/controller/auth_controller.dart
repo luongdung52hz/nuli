@@ -41,6 +41,7 @@ class AuthController extends ChangeNotifier{
         _user = FirebaseAuth.instance.currentUser;
       }
       return _userModel != null;
+
     } on FirebaseAuthException catch (e) {
       setError(e.message);
       return false;

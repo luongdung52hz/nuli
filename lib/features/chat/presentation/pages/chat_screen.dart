@@ -7,6 +7,8 @@ import 'package:nuli_app/core/constants/app_colors.dart';
 import 'package:nuli_app/core/constants/app_icons.dart';
 import 'package:nuli_app/core/widgets/textfield_app.dart';
 
+import '../../../../core/constants/app_strings.dart';
+import '../../../../core/widgets/custom_appbar.dart';
 import '../../data/models/ai_chat_model.dart';
 import '../controller/ai_chat_controller.dart';
 
@@ -49,29 +51,15 @@ class _AiChatScreenState extends State<AiChatScreen> {
   Widget build(BuildContext context) {
     final controller = context.watch<AiChatController>();
 
-    // Scroll khi có tin nhắn mới
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _scrollToBottom();
     });
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.5,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => context.go('/home'),
-        ),
-        title: const Text(
-          'Hỏi AI Nông nghiệp',
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.w600,
-            fontSize: 18,
-          ),
-        ),
-        centerTitle: true,
+      appBar: CustomAppBar(
+        title: 'Hỏi AI Nông nghiệp ',
+        onBack: () => context.go('/home'),
       ),
       body: Column(
         children: [
@@ -122,7 +110,7 @@ class _AiChatScreenState extends State<AiChatScreen> {
           /// Input chat
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(20),
               child: Row(
                 children: [
                   Expanded(
